@@ -1,0 +1,6 @@
+{
+  "name": "Just One - Digital Classroom Edition",
+  "description": "A digital scoreboard and word generator for the party game 'Just One'. Teams try to guess a secret word with the help of one-word clues from their teammates. This app helps manage teams, scores, and provides the words for each round.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

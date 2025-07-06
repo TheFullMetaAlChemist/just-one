@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Just One - Digital Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root, .theme-vibrant {
+        --color-primary: #EC4899; /* pink-500 */
+        --color-secondary: #8B5CF6; /* violet-500 */
+        --color-glow: var(--color-primary);
+        --gradient-from: #F472B6; /* pink-400 */
+        --gradient-via: #D946EF; /* fuchsia-500 */
+        --gradient-to: #A78BFA; /* violet-400 */
+      }
+      .theme-neutral {
+        --color-primary: #3B82F6; /* blue-500 */
+        --color-secondary: #6366F1; /* indigo-500 */
+        --color-glow: var(--color-primary);
+        --gradient-from: #60A5FA; /* blue-400 */
+        --gradient-via: #3B82F6; /* blue-500 */
+        --gradient-to: #818CF8; /* indigo-400 */
+      }
+      .text-gradient-themed {
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        background-image: linear-gradient(to right, var(--gradient-from), var(--gradient-via), var(--gradient-to));
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': 'var(--color-primary)',
+              'brand-secondary': 'var(--color-secondary)',
+              'slate': {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                300: '#cbd5e1',
+                400: '#94a3b8',
+                500: '#64748b',
+                600: '#475569',
+                700: '#334155',
+                800: '#1e293b',
+                900: '#0f172a',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            boxShadow: {
+              'strong': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
+              'glow-primary': '0 0 15px var(--color-glow)',
+              'glow-amber': '0 0 15px rgba(251, 191, 36, 0.6)',
+            },
+            keyframes: {
+              'fade-in': {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'bg-pan': {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              }
+            },
+            animation: {
+              'fade-in': 'fade-in 0.5s ease-out forwards',
+              'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+              'bg-pan': 'bg-pan 15s ease infinite',
+            }
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^18.2.0/",
+    "react": "https://esm.sh/react@^18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@^18.2.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.8.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="font-sans bg-slate-900 text-slate-100 bg-[length:200%_200%] bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 animate-bg-pan">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
